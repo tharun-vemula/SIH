@@ -1,12 +1,45 @@
     <%- include('../partials/header'); %>
-        <title><%=pageTitle%></title>
+        <title>Document</title>
    
         <link rel="stylesheet" href="/css/auth-styles.css">
+        <style type="text/css">
+            #main 
+            {
+                -ms-overflow-style: none; 
+                  scrollbar-width: none; 
+                   overflow: -moz-scrollbars-none;
+            }
+            #main::-webkit-scrollbar 
+            { 
+                width: 0 !important
+             }
+
+             body
+             {
+                -ms-overflow-style: none; 
+                  scrollbar-width: none; 
+                   overflow: -moz-scrollbars-none;
+             }
+             body::-webkit-scrollbar 
+            { 
+                width: 0 !important
+             }
+             #box :hover
+             {
+                background-color: whitesmoke;
+                
+             }
+             #two :hover
+             {
+                 color: black;
+                 
+             }
+        </style>
 </head>
 <body>
     
 
-      <%- include('../partials/navigation'); %>
+      <%- include('../partials/navigation', {user : user}); %>
 
     <div class="container-fluid my-2">
         <div class="container" style="background-color: white;">
@@ -19,7 +52,8 @@
                  <!--left navigation ends-->
 
                 <!-- Posts - List -Wrapper -->
-                <div class="col-lg-8 p-3" >
+                
+                <div class="col-lg-8 p-3" id="main" style="height: 90vh; overflow-y: scroll;" onscroll="one()" >
                     <!-- Header  -->
                     <div style="width: 100%; background-color:white; padding:5%; border: 1px solid black; border-radius: 3px; display:none; " id="tag">
                         <h6>Tag with</h6>
@@ -53,21 +87,64 @@
                      </div>
                     <!-- Header CLosed-->
                     <!-- Posts list-->
+                    <div class="p-3 container-fluid" style="position: relative; width: 100%; padding: 0;" id="box">
+                       <div class=" border container " style="width: 100%; " >
+                        <p class="text-start px-5 fs-5 py-2" >How to Solve NP problems ?</p> 
+                        <p class="text-start px-5 fs-7" style="color: grey; display: inline-block ; float: left;">Find out more about NP and their solutions</p>
+                        <p class="text-end  fs-7" style="color: grey;"><span><img src="/images/user.png" alt=".."></span> Tharun Vemula</p>
+                       </div>
+                    </div>
                     <% for(let post of posts) { %>
-                    <div class="p-3 container-fluid" style="position: relative; width: 100%; padding: 0;">
-                       <div class="container">
-                        <a href="/post/<%=post._id%>"><p class="text-start px-5 fs-5" style="padding-top: 8px;"><%=post.title %></p> </a>
-                        <p class="text-start px-5 fs-7" style="color: grey; display: inline-block ; margin-top: 1px;"><%=post.meta %></p>
-                        <p class="text-end  fs-7" style="color: grey;"><span><i class="material-icons" style="display: inline;">account_circle</i></span> <%=post.creator %></p>
-                    <hr>  
+                    <div class="p-3 container-fluid" style=" width: 100%; padding: 0;" id="box">
+                        <div class="border container" style="width: 100%; " >
+                         <a href="/post/<%=post._id%>" id="two"><p class="text-start px-5 fs-5 py-2" ><%=post.title %></p></a>
+                         <p class="text-start px-5 fs-7" style="color: grey; display: inline-block ; float: left;">Find out more about NP and their solutions</p>
+                         <p class="text-end  fs-7" style="color: grey;"><span><img src="/images/user.png" alt=".."></span> Tharun Vemula</p>
+                        </div>
+                     </div>
+                     <% } %>
+ 
+
+
+
+
+
+
+
+
+
+                    <div class="bg-light p-3 border container-fluid" style="position: relative; width: 100%; padding: 0;">
+                        .col-3: width of 25%
                     </div>
+                    <div class="bg-light p-3 border container-fluid" style="position: relative; width: 100%; padding: 0;">
+                        .col-3: width of 25%
                     </div>
-                    <% } %>
-             </div>
+                    <div class="bg-light p-3 border container-fluid" style="position: relative; width: 100%; padding: 0;">
+                        .col-3: width of 25%
+                    </div>
+                    <div class="bg-light p-3 border container-fluid" style="position: relative; width: 100%; padding: 0;">
+                        .col-3: width of 25%
+                    </div>
+                    <div class="bg-light p-3 border container-fluid" style="position: relative; width: 100%; padding: 0;">
+                        .col-3: width of 25%
+                    </div>
+                    <div class="bg-light p-3 border container-fluid" style="position: relative; width: 100%; padding: 0;">
+                        .col-3: width of 25%
+                    </div>
+                    <div class="bg-light p-3 border container-fluid" style="position: relative; width: 100%; padding: 0;">
+                        .col-3: width of 25%
+                    </div>
+                    <div class="bg-light p-3 border container-fluid" style="position: relative; width: 100%; padding: 0;">
+                        .col-3: width of 25%
+                    </div>
+                    <div class="bg-light p-3 border container-fluid" style="position: relative; width: 100%; padding: 0;">
+                        .col-3: width of 25%
+                    </div>
+                </div>
 
                <!--Right navigator -->
-                <div class="col-lg-2  p-3">
-                    <div class="card my-5" style="width: 18rem;">
+                <div class="col-lg-2  p-3" >
+                    <div class="card" style="width: 18rem;">
                         <div class="card-header text-center" style=" font-family: 'Open Sans', sans-serif;">
                          <p>Featured</p> 
                         </div>
@@ -76,7 +153,7 @@
                         </ul>
                     </div>
 
-                    <div class="card my-5" style="width: 18rem;">
+                    <div class="card" style="width: 18rem;">
                         <div class="card-header text-center" style=" font-family: 'Open Sans', sans-serif;">
                           <p>Tags</p>
                         </div>
@@ -85,14 +162,14 @@
                         </ul>
                     </div>
 
-                    <div class="card my-5" style="width: 18rem;">
+                    <div class="card" style="width: 18rem;">
                         <div class="card-header text-center" style=" font-family: 'Open Sans', sans-serif;">
                           <p>Filter</p>
                         </div>
                         <br>
- 				<button style="width: 90%; background-color: white; padding: 6%; border-bottom: 1px solid grey; border-top: none; border-left: none;   border-right: none; margin-left: 5%; margin-right: 5%;" onclick="tag()">Tagged Questions</button>
- 				<button style="width: 90%; background-color: white; margin-left: 5%; padding: 6%; border-bottom: 1px solid grey; border-top: none; border-left: none;   border-right: none;" onclick="sort()">Sort Questions</button>
- 				<button style="width: 90%; background-color: white; margin-left: 5%; padding: 6%; border: none; ">Recently viewed</button><br>
+ 				<button style="width: 90%; background-color: white; padding: 6%; border-bottom: 1px solid grey; border-top: none; border-left: none;   border-right: none; margin-left: 5%; margin-right: 5%;" id="two" onclick="tag()">Tagged Questions</button>
+ 				<button style="width: 90%; background-color: white; margin-left: 5%; padding: 6%; border-bottom: 1px solid grey; border-top: none; border-left: none;   border-right: none;" onclick="sort()" id="two">Sort Questions</button>
+ 				<button style="width: 90%; background-color: white; margin-left: 5%; padding: 6%; border: none; " id="two">Recently viewed</button><br>
                     </div>
 
                 </div>
@@ -123,6 +200,23 @@
 	}
 	else
 		a.style.display="none";
+	}
+    function one()
+	{
+		let x=document.getElementById("dis");
+		let a=document.getElementById('main');
+		let b=a.scrollHeight;
+		let c=a.scrollTop;
+		let d=a.offsetHeight;
+		
+		if(b-d-c <5)
+		{
+			x.style.display="inherit";
+		}
+		else
+		{
+			x.style.display="none";
+		}
 	}
 </script>
 </html>

@@ -5,6 +5,10 @@ const { validationResult } = require('express-validator/check');
 
 
 exports.getLogin = (req, res) => {
+
+  if(req.session.isLoggedIn)
+   res.redirect('/')
+
     let message = req.flash('error');
     if (message.length > 0) {
       message = message[0];
@@ -14,7 +18,8 @@ exports.getLogin = (req, res) => {
     res.render('auth/login', {
       path: '/auth/login',
       pageTitle: 'Login',
-      errorMessage: message
+      errorMessage: message,
+      user : req.session.user
     });
 }
 
@@ -28,6 +33,7 @@ exports.postLogin = (req, res) => {
         path: '/login',
         pageTitle: 'Login',
         errorMessage: errors.array()[0].msg
+        
       });
     }
 
@@ -123,3 +129,8 @@ exports.logout = (req, res, next) => {
       res.redirect('/');
     });
   };
+
+
+exports.getProfile = (req, res, next ) => {
+  res.render('users/profile', {user : req.session.user, pageTitle: req.session.user.name})
+}

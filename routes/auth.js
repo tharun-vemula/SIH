@@ -49,6 +49,7 @@ router.post('/signup',
 
   router.get('/logout' , authController.logout);
 
+  router.get('/profile', authController.getProfile );
 
   
 module.exports = router;

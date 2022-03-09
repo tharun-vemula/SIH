@@ -7,7 +7,7 @@ const MongoDBStore = require('connect-mongodb-session')(session);
 const multer = require('multer');
 const flash = require('connect-flash');
 
-const MONGO_URI = 'mongodb://tharun:R1dvZXVlDJUTdmHv@cluster0-shard-00-00.iy4kk.mongodb.net:27017,cluster0-shard-00-01.iy4kk.mongodb.net:27017,cluster0-shard-00-02.iy4kk.mongodb.net:27017/sample?ssl=true&replicaSet=atlas-k2o103-shard-0&authSource=admin&retryWrites=true&w=majority';
+const MONGO_URI = 'mongodb://tharun:F0zvliOynvWjbrKf@cluster0-shard-00-00.iy4kk.mongodb.net:27017,cluster0-shard-00-01.iy4kk.mongodb.net:27017,cluster0-shard-00-02.iy4kk.mongodb.net:27017/sample?ssl=true&replicaSet=atlas-k2o103-shard-0&authSource=admin&retryWrites=true&w=majority';
 
 const authRouter = require('./routes/auth');
 const indexRouter = require('./routes/index');
@@ -50,9 +50,14 @@ app.use((req, res, next) => {
     next();
   });
 
+app.get('/home', (req, res) => {
+    res.sendFile(__dirname + "/views/index.html");
+})
+
 app.use(authRouter);
 app.use(indexRouter);
 app.use(postRouter);
+
 
 
 mongoose

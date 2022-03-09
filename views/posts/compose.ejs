@@ -3,7 +3,7 @@
 <body style="background-color: white;">
    
 
-      <%- include('../partials/navigation'); -%>
+      <%- include('../partials/navigation', {user : user}); -%>
 
       <section>
           
@@ -36,12 +36,15 @@
       </section>
    <hr>
 
+  
+   <%- include('../partials/footer-next'); -%> -->
 
-   <%- include('../partials/footer'); -%>
+        
+
 
     <script type="application/javascript" src= "/tinymce/tinymce.min.js"></script>
     <script type="application/javascript" src= "/javascripts/tinymce-config.js"></script>
-
+ 
     
 </body>
 </html>

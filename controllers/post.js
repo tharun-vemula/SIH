@@ -52,12 +52,12 @@ exports.submitCompose = (req, res) => {
 
 
 exports.getCompose = (req, res) => {
-    console.log(req.session);
-    res.render('posts/compose', {pageTitle : 'Compose'});
+    console.log(req.session.user);
+    res.render('posts/compose', {pageTitle : 'Compose', user : req.session.user});
 }
 
 exports.postCompose = (req, res) => {
-    res.render('posts/review', {title : req.body.title, content: req.body.content, meta : req.body.meta, file : req.file, pageTitle : 'Raven'});
+    res.render('posts/review', {title : req.body.title, content: req.body.content, meta : req.body.meta, file : req.file, pageTitle : 'Raven',user: req.session.user});
 }
 
 
@@ -65,7 +65,7 @@ exports.viewPost = (req, res) => {
     var id = new mongoose.Types.ObjectId(req.params.id);
     Post.findById(id)
         .then(post => {
-            res.render('posts/view', {post : post, pageTitle : 'Raven'});
+            res.render('posts/view', {post : post, pageTitle : 'Raven', user : req.session.user});
         })
         .catch(err => {
             console.log(err);
