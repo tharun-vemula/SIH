@@ -50,6 +50,11 @@ app.use((req, res, next) => {
     next();
   });
 
+app.get('/home', (req, res) => {
+    res.sendFile(__dirname + "/views/index.html");
+})
+
+
 app.use(authRouter);
 app.use(indexRouter);
 app.use(postRouter);
