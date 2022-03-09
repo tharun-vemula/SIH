@@ -1,0 +1,62 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div style="width: 100%;">
+
+
+<nav class="navbar navbar-expand-lg shadow bg-white p-1 mb-1"  >
+    <div class="container-fluid ">
+      <a class="navbar-brand" style="padding-left: 80px;" href="/">
+        <img src="/images/logo.png" alt=""> Raven</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+    
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 justify-content-center"  >
+        <li class="nav-item">
+            <form class="d-flex justify-content-center" >
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width: 470px;" oninput="one()"   id="search" >
+                <i class="fa fa-search" id="symbol" style="font-size: 20px; align-self: center; margin-left: -40px;"></i>
+            </form>
+        </li>
+    </ul>
+        
+        <ul class="navbar-nav ml-auto order-0 " style="margin-right: 5%;">
+          <% if(isAuthenticated) { %>
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/profile" style="color: black;"><%= user.name %> </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/logout" style="color: black;"> Log Out </a>
+            </li>
+          <% } else { %>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/login" style="color: black;"> Login </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/signup"> Signup </a>
+            </li>
+
+          <% } %>
+          
+        </ul>
+       
+      </div>
+    </div>
+  </nav>
+</div>
+<script>
+  
+    let a=document.getElementById("symbol");
+    let b=document.getElementById("search");
+    function one(){
+      
+  if(b.value.length==0)
+  
+    a.style.display="inherit";
+  else
+  a.style.display="none";
+    }
+</script>
