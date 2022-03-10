@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <%- include('../partials/header'); -%>
 <link rel="stylesheet" href="/css/auth-styles.css">
@@ -46,4 +47,54 @@
     </script>
     
 </body>
+=======
+
+<%- include('../partials/header'); -%>
+<link rel="stylesheet" href="/css/auth-styles.css">
+</head>
+<bodys>
+   
+
+  <%- include('../partials/navigation'); -%>
+      <section>
+          <div class="container w-75 p-3" style="background-color: white;">
+            <div class="header">
+                <p class="title fs-2 text-center"  id="Title" style="font-family: 'Roboto', sans-serif;"></p>
+                <br>
+                <p class="author text-start fs-4" style="font-family: 'Noto Sans', sans-serif;"><img src=".JPG" class="rounded float-start" alt="..."> Tharun Vemula</p>
+                <span id="date" class="fst-italic"></span>
+                <hr>
+            </div>
+            <div class="content w-75 p-3 mx-auto"  id="bcontent" style="display: flex; ">
+                <p  id="content" style="font-family: 'Montserrat'">
+                </p>
+               <hr>
+               
+            </div>
+            <div class="content w-75 p-3 mx-auto"  id="fileholder" style="display: flex; ">
+              <a href="/download/<%=post._id%>"><i class="material-icons" style="display: block; font-size:36px;">file_present</i></a>
+            </div>
+            
+          </div>
+
+      </section>
+   <hr>
+
+
+   <%- include('../partials/footer-next'); -%>
+    
+   
+    
+
+    <script>
+      let titlePlace = document.getElementById('Title');
+      let title = `<%-post.title%>`
+      titlePlace.innerHTML = title ;
+      let contentPlace = document.getElementById('content');
+      let content = `<%-post.content%>`
+      contentPlace.innerHTML = content;
+    </script>
+    
+</body>
+>>>>>>> 1c8107c0ce596895385a3fd95d1f29ae28f2dcf0
 </html>
