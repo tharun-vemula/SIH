@@ -82,6 +82,8 @@ exports.postSignup = (req, res) => {
     const name = req.body.name;
     const email = req.body.email;
     const password = req.body.password;
+    const organisation = req.body.organisation;
+    const position = req.body.position;
 
     const errors = validationResult(req);
      if (!errors.isEmpty()) {
@@ -106,10 +108,13 @@ exports.postSignup = (req, res) => {
                     name : name,
                     email : email,
                     password : hashedPassword,
+                    work : organisation,
+                    position : position,
                     contribution : {posts: []}
 
                 });
-
+                        req.session.isLoggedIn = true;
+                        req.session.user = user;
                 return user.save();
             })
             .then( result => {
@@ -132,5 +137,8 @@ exports.logout = (req, res, next) => {
 
 
 exports.getProfile = (req, res, next ) => {
+  if(!req.session.user.name)
+     res.redirect('/login')
+     
   res.render('users/profile', {user : req.session.user, pageTitle: req.session.user.name})
 }

@@ -17,7 +17,17 @@ const userSchema = Schema({
         required : true,
     },
 
-    contribution: {
+    work : {
+      type: String,
+      required : true,
+  },
+    
+  position : {
+    type: String,
+    required : true,
+},
+
+contribution: {
         posts: [
           {
             postId: {
