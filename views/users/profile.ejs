@@ -1,0 +1,50 @@
+<%- include('../partials/header'); %>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/auth-styles.css">
+</head>
+<body>
+    <%- include('../partials/navigation', {user : user}); %>
+    <div class="container-fluid my-2">
+        <div class="container" style="background-color: white;">
+            <div class="row">
+                <!--left navigation-->
+                <div class="col-lg-2 p-5 shadow-sm">
+                    <p class="text-start"> <a href="/home">Home</a> </p>
+                    <p class="text-start"> <a href="/trending">Trending</a> </p>
+                    <p class="text-center py-3" style="color: grey;"><a href="/users"> Users</a></p>
+                    <p class="text-center py-1" style="color: grey;"><a href="/tags"> Tags</a></p>
+                </div>
+                <div class="col-lg-10 p-5">
+                    <div class="details">
+                        <span class="text-start" style="display: inline;"> <img class="rounded float-start" src="/images/logo.png" alt="" style="height: 200px; width: 200px"></span>
+                        <span style="float: right"> <button class="btn btn-outline-dark"><span><i class="material-icons">edit</i></span> Edit</button></span>
+                        <p class="text-start fs-2 px-5" style="font-family: 'Open Sans', sans-serif;"> <%=user.name %></p>
+                        <p class="text-start fs-6" style="font-family: 'Open Sans', sans-serif; color: grey"> <%=user.position%> at  <%=user.work%>  </p>
+                        <p class="text-start fs-6" style="font-family: 'Open Sans', sans-serif; color: grey"> <%=user.city%>, <%=user.state%>,<%=user.country%>  </p>
+                    </div>
+
+                    <div class="row">
+                        <p class="text-start fs-4"> Summary </p>
+                        <div class="col">
+                            <div class="card" style="height:10rem; width:15rem; display: inline;">
+                                <div class="card-body">
+                                    <p class="card-text"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card" style="height:10rem; width:15rem; display: inline;">
+                                <div class="card-body">
+                                    <p class="card-text">Lorem ipsum dolor sit amet.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
