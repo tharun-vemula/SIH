@@ -1,241 +1,198 @@
-    <%- include('../partials/header'); %>
-        <title>Document</title>
-   
-        <link rel="stylesheet" href="/css/auth-styles.css">
-        <style type="text/css">
-            #main 
-            {
-                -ms-overflow-style: none; 
-                  scrollbar-width: none; 
-                   overflow: -moz-scrollbars-none;
-            }
-            #main::-webkit-scrollbar 
-            { 
-                width: 0 !important
-             }
+<%- include('../partials/header'); %>
+<title>Document</title>
 
-             body
-             {
-                -ms-overflow-style: none; 
-                  scrollbar-width: none; 
-                   overflow: -moz-scrollbars-none;
-             }
-             body::-webkit-scrollbar 
-            { 
-                width: 0 !important
-             }
-             #box :hover
-             {
-                background-color: whitesmoke;
-                
-             }
-             #two :hover
-             {
-                 color: black;
-                 
-             }
-             a:hover {
-                 color:black
-             }
-             a:active{
-                 color:white;
-                 background-color: black;
-                
-             }
-             .cards {
-                 font-size: 0.8rem;
-             }
+<link rel="stylesheet" href="/css/auth-styles.css">
+<style type="text/css">
+    #main 
+    {
+        -ms-overflow-style: none; 
+          scrollbar-width: none; 
+           overflow: -moz-scrollbars-none;
+    }
+    #main::-webkit-scrollbar 
+    { 
+        width: 0 !important
+     }
 
-             .card {
-                 margin-top: 1rem;
-             }
-        </style>
+     body
+     {
+        -ms-overflow-style: none; 
+          scrollbar-width: none; 
+           overflow: -moz-scrollbars-none;
+     }
+     body::-webkit-scrollbar 
+    { 
+        width: 0 !important
+     }
+     #box :hover
+     {
+        background-color: whitesmoke;
+        
+     }
+     #two :hover
+     {
+         color: black;
+         
+     }
+     a:hover {
+         color:black
+     }
+     a:active{
+         color:white;
+         background-color: black;
+        
+     }
+     .cards {
+         font-size: 0.8rem;
+     }
+
+     .card {
+         margin-top: 1rem;
+     }
+</style>
 </head>
 <body>
-    
 
-      <%- include('../partials/navigation'); %>
 
-    <div class="container-fluid my-2">
-        <div class="container" style="background-color: white;">
-            <div class="row">
-                <!--left navigation-->
-                <div class="col-lg-2 p-5">
-                    <p class="text-start"> <a href="/home">Home</a> </p>
-                    <p class="text-start"> <a href="/trending">Trending</a> </p>
-                    <p class="text-center py-3" style="color: grey;"><a href="/users"> Users</a></p>
-                    <p class="text-center py-1" style="color: grey;"><a href="/tags"> Tags</a></p>
-                 </div>
-                 <!--left navigation ends-->
+<%- include('../partials/navigation'); %>
 
-                <!-- Posts - List -Wrapper -->
-                
-                <div class="col-lg-8 p-3" id="main" style="height: 90vh; overflow-y: scroll;" onscroll="one()" >
-                    <!-- Header  -->
-                    <div style="width: 100%; background-color:white; padding:5%; border: 1px solid black; border-radius: 3px; display:none; " id="tag">
-                        <h6>Tag with</h6>
-                        <hr>
-                        <input type="radio" name="">My watched tags<br><br>
-                       <input type="radio" name="">Search tags <br><br>
-                        <form class="d-flex">
-                                        
-                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                 <button class="btn btn-outline-success" type="submit">Search</button>
-               </form>
-                    </div>
-                    <div style="background-color:white; width:100%; padding: 5%; border: 1px solid black; border-radius: 3px; display:none" id="sort">
-                        <h6>Sort By</h6>
-                        <hr>
-                        <form>
-                        <input type="radio" name=""> Latest first<br><br>
-                        <input type="radio" name=""> Oldest first<br><br>
-                        <input type="radio" name="">  Recently added<br><br>
-                        <input type="radio" name=""> Frequently viewed
-                        
-                    </form>
-                    </div>
-                    <div class="p-4 my-4" style="position: relative; width: 100%;">
-                        <div style="display: inline; width: 50%;">
-                            <span class="text-start fs-3" > Top Articles</span>
-                        </div>
-                        <div style="display: inline;">
-                            <a href="/compose" class="btn btn-primary" style="float: right;">  Compose </a>
-                        </div>
-                     </div>
-                     <div class="text-center"><h1>Trending Blogs</h1></div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="card" style="height:10rem; width:15rem;">
-                                <div class="card-body">
-                                    <p class="card-text">Lorem ipsum dolor sit amet.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card" style="height:10rem; width:15rem;">
-                                <div class="card-body">
-                                    <p class="card-text">Lorem ipsum dolor sit amet.</p>
-                                </div>
-                            </div>
-                        </div> <div class="col">
-                            <div class="card" style="height:10rem; width:15rem;">
-                                <div class="card-body">
-                                    <p class="card-text">Lorem ipsum dolor sit amet.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="card" style="height:10rem; width:15rem;">
-                                <div class="card-body">
-                                    <p class="card-text">Lorem ipsum dolor sit amet.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card" style="height:10rem; width:15rem;">
-                                <div class="card-body">
-                                    <p class="card-text">Lorem ipsum dolor sit amet.</p>
-                                </div>
-                            </div>
-                        </div> <div class="col">
-                            <div class="card" style="height:10rem; width:15rem;">
-                                <div class="card-body">
-                                    <p class="card-text">Lorem ipsum dolor sit amet.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Header CLosed-->
-                    <!-- Posts list-->
-                    <% for(let post of posts) { %>
-                        
-                    <div class="container-fluid" style=" width: 100%; padding: 0; margin: 0%;" id="box">
-                        <div class="border container" style="width: 100%; " >
-                         <a href="/post/<%=post._id%>" id="two"><p class="text-start px-5 fs-5 py-2" ><%=post.title %></p></a>
-                         <p class="text-start px-5 fs-7" style="color: grey; display: inline-block ; float: left;">Find out more about NP and their solutions</p>
-                         <p class="text-end  fs-7" style="color: grey;"><span><i class="material-icons">account_circle</i></span> Tharun Vemula</p>
-                        </div>
-                     </div>
-                     <% } %>
- 
-                </div>
+<div class="container-fluid my-2">
+<div class="container" style="background-color: white;">
+    <div class="row">
+        <!--left navigation-->
+        <div class="col-lg-2 p-5">
+            <p class="text-start"> <a href="/home">Home</a> </p>
+            <p class="text-start"> <a href="/trending">Trending</a> </p>
+            <p class="text-start py-3" style="color: grey;"><a href="/users"> Users</a></p>
+            <p class="text-start py-1" style="color: grey;"><a href="/tags"> Tags</a></p>
+         </div>
+         <!--left navigation ends-->
 
-               <!--Right navigator -->
-                <div class="col-lg-2  p-3 cards" >
-                    <div class="card shadow" style="width: 18rem;">
-                        <div class="card-header text-center" style=" font-family: 'Open Sans', sans-serif;">
-                         <p><span><i class="material-icons">edit_note</i></span> Featured</p> 
-                        </div>
-                        <ul class="list-group list-group-flush">
-                          <li class="list-group-item text-center"  style=" font-family: 'Open Sans', sans-serif;">Get your posts featured and share your knowledge and Skills</li>
-                        </ul>
-                    </div>
-
-                    <div class="card shadow" style="width: 18rem;">
-                        <div class="card-header text-center" style=" font-family: 'Open Sans', sans-serif;">
-                          <p> <span><i class="material-icons">style</i></span> Tags</p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                          <li class="list-group-item text-center"  style=" font-family: 'Open Sans', sans-serif;">Follow tags to customise feed</li>
-                        </ul>
-                    </div>
-
-                    <div class="card shadow" style="width: 18rem;">
-                        <div class="card-header text-center" style=" font-family: 'Open Sans', sans-serif;">
-                         <p><span><i class="material-icons">edit_note</i></span> Filter </p> 
-                        </div>
-                        <ul class="list-group list-group-flush">
-                          <li class="list-group-item text-center"  style=" font-family: 'Open Sans', sans-serif;">Filter and Personalise your posts</li>
-                        </ul>
-                    </div>
-
-                </div>
+        <!-- Posts - List -Wrapper -->
+        
+        <div class="col-lg-8 p-3" id="main" style="height: 90vh; overflow-y: scroll;" onscroll="one()" >
+            <!-- Header  -->
+            <div style="width: 100%; background-color:white; padding:5%; border: 1px solid black; border-radius: 3px; display:none; " id="tag">
+                <h6>Tag with</h6>
+                <hr>
+                <input type="radio" name="">My watched tags<br><br>
+               <input type="radio" name="">Search tags <br><br>
+                <form class="d-flex">
+                                
+         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+         <button class="btn btn-outline-success" type="submit">Search</button>
+       </form>
             </div>
+            <div style="background-color:white; width:100%; padding: 5%; border: 1px solid black; border-radius: 3px; display:none" id="sort">
+                <h6>Sort By</h6>
+                <hr>
+                <form>
+                <input type="radio" name=""> Latest first<br><br>
+                <input type="radio" name=""> Oldest first<br><br>
+                <input type="radio" name="">  Recently added<br><br>
+                <input type="radio" name=""> Frequently viewed
+                
+            </form>
+            </div>
+            <div class="p-4 my-4" style="position: relative; width: 100%;">
+                <div style="display: inline; width: 50%;">
+                    <span class="text-start fs-3" > Top Articles</span>
+                </div>
+                <div style="display: inline;">
+                    <a href="/compose" class="btn btn-primary" style="float: right;">  Compose </a>
+                </div>
+             </div>
+             
+                      
+            <!-- Header CLosed-->
+            <!-- Posts list-->
+            <% for(let post of posts) { %>
+                
+            <div class="container-fluid" style=" width: 100%; padding: 0; margin: 0%;" id="box">
+                <div class="border container" style="width: 100%; " >
+                 <a href="/post/<%=post._id%>" id="two"><p class="text-start px-5 fs-5 py-2" ><%=post.title %></p></a>
+                 <p class="text-start px-5 fs-7" style="color: grey; display: inline-block ; float: left;">Find out more about NP and their solutions</p>
+                 <p class="text-end  fs-7" style="color: grey;"><span><i class="material-icons">account_circle</i></span> Tharun Vemula</p>
+                </div>
+             </div>
+             <% } %>
+
+        </div>
+
+       <!--Right navigator -->
+        <div class="col-lg-2  p-3 cards" >
+            <div class="card shadow" style="width: 18rem;">
+                <div class="card-header text-center" style=" font-family: 'Open Sans', sans-serif;">
+                 <p><span><i class="material-icons">edit_note</i></span> Featured</p> 
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item text-center"  style=" font-family: 'Open Sans', sans-serif;">Get your posts featured and share your knowledge and Skills</li>
+                </ul>
+            </div>
+
+            <div class="card shadow" style="width: 18rem;">
+                <div class="card-header text-center" style=" font-family: 'Open Sans', sans-serif;">
+                  <p> <span><i class="material-icons">style</i></span> Tags</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item text-center"  style=" font-family: 'Open Sans', sans-serif;">Follow tags to customise feed</li>
+                </ul>
+            </div>
+
+            <div class="card shadow" style="width: 18rem;">
+                <div class="card-header text-center" style=" font-family: 'Open Sans', sans-serif;">
+                 <p><span><i class="material-icons">edit_note</i></span> Filter </p> 
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item text-center"  style=" font-family: 'Open Sans', sans-serif;">Filter and Personalise your posts</li>
+                </ul>
+            </div>
+
         </div>
     </div>
-    
-    <%- include('../partials/footer'); %>
+</div>
+</div>
+
+<%- include('../partials/footer'); %>
 </body>
 <script type="text/javascript">
-	function tag() {
-		
-		let a=document.getElementById('tag');
-		let b=document.getElementById('sort');
-		if(a.style.display == "none"){
-		a.style.display="inherit";
-		b.style.display="none";
-	}
-	else
-		a.style.display="none";
-	}
-	function sort() {
-		let a=document.getElementById('sort');
-		let b=document.getElementById('tag');
-		if(a.style.display == "none"){
-		b.style.display="none";	
-		a.style.display="inherit";
-	}
-	else
-		a.style.display="none";
-	}
-    function one()
-	{
-		let x=document.getElementById("dis");
-		let a=document.getElementById('main');
-		let b=a.scrollHeight;
-		let c=a.scrollTop;
-		let d=a.offsetHeight;
-		
-		if(b-d-c <5)
-		{
-			x.style.display="inherit";
-		}
-		else
-		{
-			x.style.display="none";
-		}
-	}
+function tag() {
+
+let a=document.getElementById('tag');
+let b=document.getElementById('sort');
+if(a.style.display == "none"){
+a.style.display="inherit";
+b.style.display="none";
+}
+else
+a.style.display="none";
+}
+function sort() {
+let a=document.getElementById('sort');
+let b=document.getElementById('tag');
+if(a.style.display == "none"){
+b.style.display="none";	
+a.style.display="inherit";
+}
+else
+a.style.display="none";
+}
+function one()
+{
+let x=document.getElementById("dis");
+let a=document.getElementById('main');
+let b=a.scrollHeight;
+let c=a.scrollTop;
+let d=a.offsetHeight;
+
+if(b-d-c <5)
+{
+    x.style.display="inherit";
+}
+else
+{
+    x.style.display="none";
+}
+}
 </script>
 </html>
