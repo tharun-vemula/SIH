@@ -138,7 +138,6 @@ exports.download = (req, res) => {
         console.log(err);
     })
 }
-<<<<<<< HEAD
 
 
 exports.editPost = (req,res) => {
@@ -165,5 +164,3 @@ exports.updatePost = (req, res) => {
         })
         .catch(err => console.log(err));
 }
-=======
->>>>>>> 0d3b4b747754908ea6ad42e28fcda32084523ff0
