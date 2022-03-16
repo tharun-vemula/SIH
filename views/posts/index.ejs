@@ -147,11 +147,14 @@
                   <li class="list-group-item text-center"  style=" font-family: 'Open Sans', sans-serif;">Filter and Personalise your posts</li>
                 </ul>
             </div>
-
+ 
         </div>
     </div>
 </div>
+<%- include('../partials/pagination.ejs', {currentPage: currentPage, nextPage: nextPage, previousPage: previousPage, lastPage: lastPage, hasNextPage: hasNextPage, hasPreviousPage: hasPreviousPage}) %>
 </div>
+
+
 
 <%- include('../partials/footer'); %>
 </body>

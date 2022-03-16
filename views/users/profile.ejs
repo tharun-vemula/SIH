@@ -27,34 +27,25 @@
                       
                       <br><br>
                      <div class="row">
-                        <h1>Summary</h1>
+                        <p class="text-start fs-4">Summary</p>
+
+                        <% for(let post of posts) { %>
+                        
                         <div class="col">
                             <div class="card" style="height:10rem; width:15rem;border-color: black;">
                                 <div class="card-body">
-                                    <p class="card-text">Lorem ipsum dolor sit amet.</p>
+                                    <p class="card-text"><%= post.title %></p>
+                                    <a class="btn btn-primary" href="/post/<%=post._id%>">Edit</a>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col">
-                            <div class="card" style="height:10rem; width:15rem;border-color: black;">
-                                <div class="card-body">
-                                    <p class="card-text">Lorem ipsum dolor sit amet.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col">
-                            <div class="card" style="height:10rem; width:15rem;border-color: black;">
-                                <div class="card-body">
-                                    <p class="card-text">Lorem ipsum dolor sit amet.</p>
-                                </div>
-                            </div>
-                        </div>
+                    <% } %>
                      </div>
                     </div>
 
             </div>
         </div>
     </div>
+    <%- include('../partials/footer-next'); %>
 </body>

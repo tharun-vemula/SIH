@@ -14,6 +14,7 @@ router.post('/compose', postController.postCompose);
 
 router.post('/submit', postController.submitCompose );
 
+router.post('/review', postController.reviewCompose );
 
 
 

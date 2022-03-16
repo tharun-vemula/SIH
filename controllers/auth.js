@@ -1,4 +1,5 @@
 const User = require("../models/user");
+const Post = require("../models/post")
 const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator/check');
 
@@ -84,6 +85,9 @@ exports.postSignup = (req, res) => {
     const password = req.body.password;
     const organisation = req.body.organisation;
     const position = req.body.position;
+    const city = req.body.city;
+    const state = req.body.state;
+    const country = req.body.country;
 
     const errors = validationResult(req);
      if (!errors.isEmpty()) {
@@ -110,6 +114,9 @@ exports.postSignup = (req, res) => {
                     password : hashedPassword,
                     work : organisation,
                     position : position,
+                    city : city,
+                    state : state,
+                    country : country,
                     contribution : {posts: []}
 
                 });
@@ -139,6 +146,9 @@ exports.logout = (req, res, next) => {
 exports.getProfile = (req, res, next ) => {
   if(!req.session.user.name)
      res.redirect('/login')
-     
-  res.render('users/profile', {user : req.session.user, pageTitle: req.session.user.name})
+  Post.find({createrId : req.session.user._id})
+  .then(posts => {
+    res.render('users/profile', {user : req.session.user, pageTitle: req.session.user.name, posts: posts})
+  })
+  
 }
