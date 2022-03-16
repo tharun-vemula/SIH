@@ -2,30 +2,33 @@
 <%- include('../partials/header'); -%>
 <link rel="stylesheet" href="/css/auth-styles.css">
 </head>
-<body style="background-color:#eee;">
+<bodys>
    
 
   <%- include('../partials/navigation'); -%>
       <section>
           <div class="container w-75 p-3" style="background-color: white;">
             <div class="header">
-                <p class="title fs-2 text-center"  id="Title" style="font-family: 'Roboto', sans-serif;"></p>
+                <p class="title fs-2 text-center"  id="Title" style="font-family: 'Roboto', sans-serif;"> </p>
                 <br>
-                <p class="author text-start fs-4" style="font-family: 'Noto Sans', sans-serif;"><img src=".JPG" class="rounded float-start" alt="..."> Tharun Vemula</p>
+                <p class="author text-start fs-4" style="font-family: 'Noto Sans', sans-serif;"><img src=".JPG" class="rounded float-start" alt="..."></p>
                 <span id="date" class="fst-italic"></span>
                 <hr>
             </div>
             <div class="content w-75 p-3 mx-auto"  id="bcontent" style="display: flex; ">
-                <p  id="content" style="font-family: 'Montserrat'">
-                </p>
-                <form action="/submit" method="post" enctype="multipart/form-data">
-                  <input type="hidden" name="title" value="<%=title%>">
-                  <input type="hidden" name="meta" value="<%=meta%>">
-                  <input type="hidden" name="content" value="<%=content%>">
-                  <input type="hidden" name="file" value="<%=file%>">
-                  <button class="btn btn-primary my-4" type="submit"> Submit </button><br>
-                </form>
+                <p  id="content" style="font-family: 'Montserrat'"> </p>
+               <hr>
+               
             </div>
+            <div class="content w-75 p-3 mx-auto"  id="fileholder" style="display: flex; ">
+              <a href="/download/<%=post._id%>"><i class="material-icons" style="display: block; font-size:36px;">file_present</i></a>
+              <hr>
+            </div>
+        <div class="w-75 p-3 mx-auto">
+            <a href="/" class="btn btn-primary"> Submit </a>
+        </div>
+           
+            
           </div>
 
       </section>
@@ -35,24 +38,18 @@
    <%- include('../partials/footer-next'); -%>
     
    
-    <script>
-        let dateSpace = document.querySelector('#date');
-        var today = new Date();
-        var dd = String(today.getDate()).padStart(2, '0');
-        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-        var yyyy = today.getFullYear();
-
-        today = mm + '/' + dd + '/' + yyyy;
-        dateSpace.textContent = today;
-    </script>
-
+    
+ 
     <script>
       let titlePlace = document.getElementById('Title');
-      let title = `<%-title%>`
+      let title = `<%-post.title%>`
       titlePlace.innerHTML = title ;
       let contentPlace = document.getElementById('content');
-      let content = `<%-content%>`
+      let content = `<%-post.content%>`
       contentPlace.innerHTML = content;
+      let authorPlace = document.getElementById('author');
+      let author = `<%-post.creator%>`
+      authorPlace.innerHTML = author;
     </script>
     
 </body>

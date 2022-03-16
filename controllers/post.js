@@ -3,13 +3,58 @@ const fs = require('fs');
 const path = require('path');
 const Post = require('../models/post');
 const User = require('../models/user');
+const user = require('../models/user');
+
+
+exports.reviewCompose = (req, res) => {
+    let newPost = {
+        title: req.body.title,
+        meta: req.body.meta,
+        content: req.body.content,
+        createrId :  req.session.user._id,
+        creator: req.session.user.name
+    }
+
+    if(req.file == 'undefined'){
+        newPost.postPath = null;
+      
+    } else {
+        newPost.postPath = req.file.path;
+    }
+   
+    const post = new Post(newPost);
+    post.save()
+        .then(result => {
+            console.log('post added to post db');
+
+            User.findById(post.createrId)
+                .then(user => {
+                    let newPost = {postId : post._id}
+                    user.contribution.posts.push(newPost);
+                    user.save()
+                        .then(res => {
+                            console.log('post added to db');
+                        })
+                   
+                })
+           res.redirect('posts/view', {post : result, user : req.session.user, pageTitle : "Review"});
+            
+        })
+        .catch(err => {
+            console.log(err);
+        })
+
+    res.render('posts/review', {post : post, pageTitle : 'Review', user : req.session.user});
+
+}
+
 
 exports.submitCompose = (req, res) => {
     const title = req.body.title;
     const meta = req.body.meta;
     const content = req.body.content;
     const file = req.file;
-    console.log(file);
+    //console.log(file);
 
     const post = new Post({
         title : title,

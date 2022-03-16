@@ -11,13 +11,12 @@
             <div class="header">
                 <p class="title fs-2 text-center"  id="Title" style="font-family: 'Roboto', sans-serif;"></p>
                 <br>
-                <p class="author text-start fs-4" style="font-family: 'Noto Sans', sans-serif;"><img src=".JPG" class="rounded float-start" alt="..."> Tharun Vemula</p>
+                <p class="author text-start fs-4" id="author" style="font-family: 'Noto Sans', sans-serif;"><img src=".JPG" class="rounded float-start" alt="..."> </p>
                 <span id="date" class="fst-italic"></span>
                 <hr>
             </div>
             <div class="content w-75 p-3 mx-auto"  id="bcontent" style="display: flex; ">
-                <p  id="content" style="font-family: 'Montserrat'">
-                </p>
+                <p  id="content" style="font-family: 'Montserrat'"></p>
                <hr>
                
             </div>
@@ -42,8 +41,12 @@
       titlePlace.innerHTML = title ;
       let contentPlace = document.getElementById('content');
       let content = `<%-post.content%>`
-      contentPlace.innerHTML = content;
-    </script>
+      contentPlace.innerHTML = content; 
+      let authorPlace = document.getElementById('author');
+      let author = `<%-post.creator%>`
+      authorPlace.innerHTML = author;
+
+    </script> 
     
 </body>
 </html>
