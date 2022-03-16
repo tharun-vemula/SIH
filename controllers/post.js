@@ -14,8 +14,8 @@ exports.reviewCompose = (req, res) => {
         createrId :  req.session.user._id,
         creator: req.session.user.name
     }
-
-    if(req.file == 'undefined'){
+    console.log('review', req.file)
+    if(!req.file){
         newPost.postPath = null;
       
     } else {
@@ -137,4 +137,30 @@ exports.download = (req, res) => {
     .catch(err => {
         console.log(err);
     })
+}
+
+
+exports.editPost = (req,res) => {
+    if(req.session.user._id == req.params.id )
+        {
+            Post.findById(id)
+                .then(post => {
+                    res.render('posts/edit', { post: post, pageTitle: 'Raven', user: req.session.user });
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+        }
+}
+
+
+exports.updatePost = (req, res) => {
+    const filter = {  _id : req.params.id   }
+    const update = { ...req.body}
+    Post.findOneAndUpdate(filter, update)
+        .then(result => {
+            console.log(result);
+            res.redirect('/');
+        })
+        .catch(err => console.log(err));
 }

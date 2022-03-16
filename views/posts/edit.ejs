@@ -1,0 +1,60 @@
+<%- include('../partials/header'); -%>
+<link rel="stylesheet" href="/css/auth-styles.css">
+<body style="background-color: white;">
+   
+
+      <%- include('../partials/navigation', {user : user}); -%>
+
+      <section>
+          
+          <form action="/edit/<%=post._id %>" method="post" enctype="multipart/form-data">
+          <div class="container w-75" style="background-color: white;">
+            <!-- <p class="display-6">Compose your post</p> -->
+            <div class="content w-75 mx-auto py-5">
+                <label for="title" class="form-label"><span class="fs-3">Title</span></label>
+                <input type="text" class="form-control" name="title" id="Title" placeholder="">
+                <label for="description" class="form-label"><span class="fs-3">Description</span></label>
+                <input type="text" class="form-control" name="meta" id="Meta" id="formGroupExampleInput" placeholder="">
+              </div>
+              <hr>
+              <div class="content w-75 mx-auto py-2">
+                <label for="content" class="form-label"><span class="fs-3">Content</span></label> 
+              </div>
+            
+            <div class="content w-75 p-3 mx-auto" style="display: flex; ">
+                <textarea name="content" id="editor">Hello, World!</textarea>
+            </div>
+            <div class="content w-75 mx-auto py-2">
+                <label for="content" class="form-label my-4"><span class="fs-5">Upload Document</span></label> 
+                <input type="file" name="file" style="width: 30%"class="form-control" id="fileinput">
+                <br>
+                <button class="btn btn-primary my-4" type="submit"> Review </button><br>
+            </div>
+            
+          </div>
+        </form>
+      </section>
+   <hr>
+ 
+  
+   <%- include('../partials/footer-next'); -%> -->
+
+        
+
+
+    <script type="application/javascript" src= "/tinymce/tinymce.min.js"></script>
+    <script type="application/javascript" src= "/javascripts/tinymce-config.js"></script>
+    <script>
+      let titlePlace = document.getElementById('Title');
+      let title = `<%-post.title%>`
+      titlePlace.innerHTML = title ;
+      let contentPlace = document.getElementById('Meta');
+      let content = `<%-post.meta%>`
+      contentPlace.innerHTML = content;
+      let authorPlace = document.getElementById('editor');
+      let author = `<%-post.content%>`
+      authorPlace.innerHTML = author;
+    </script>
+    
+</body>
+</html>

@@ -35,8 +35,9 @@
          
      }
      a:hover {
-         color:black
+         color:black;
      }
+     
      a:active{
          color:white;
          background-color: black;
@@ -63,8 +64,8 @@
         <div class="col-lg-2 p-5">
             <p class="text-start"> <a href="/home">Home</a> </p>
             <p class="text-start"> <a href="/trending">Trending</a> </p>
-            <p class="text-start py-3" style="color: grey;"><a href="/users"> Users</a></p>
-            <p class="text-start py-1" style="color: grey;"><a href="/tags"> Tags</a></p>
+            <p class="text-center py-3" style="color: grey;"><a href="/users"> Users</a></p>
+            <p class="text-center py-1" style="color: grey;"><a href="/tags"> Tags</a></p>
          </div>
          <!--left navigation ends-->
 
@@ -102,8 +103,7 @@
                     <a href="/compose" class="btn btn-primary" style="float: right;">  Compose </a>
                 </div>
              </div>
-             
-                      
+            
             <!-- Header CLosed-->
             <!-- Posts list-->
             <% for(let post of posts) { %>
@@ -112,49 +112,46 @@
                 <div class="border container" style="width: 100%; " >
                  <a href="/post/<%=post._id%>" id="two"><p class="text-start px-5 fs-5 py-2" ><%=post.title %></p></a>
                  <p class="text-start px-5 fs-7" style="color: grey; display: inline-block ; float: left;">Find out more about NP and their solutions</p>
-                 <p class="text-end  fs-7" style="color: grey;"><span><i class="material-icons">account_circle</i></span> Tharun Vemula</p>
+                 <p class="text-end  fs-7" style="text-align: center;color:grey;"><span><i class="material-icons" style="vertical-align:middle;margin:0px 0px">account_circle</i></span> Tharun Vemula</p>
                 </div>
              </div>
              <% } %>
-
+             <%- include('../partials/pagination.ejs', {currentPage: currentPage, nextPage: nextPage, previousPage: previousPage, lastPage: lastPage, hasNextPage: hasNextPage, hasPreviousPage: hasPreviousPage}) %>
         </div>
 
        <!--Right navigator -->
         <div class="col-lg-2  p-3 cards" >
-            <div class="card shadow" style="width: 18rem;">
-                <div class="card-header text-center" style=" font-family: 'Open Sans', sans-serif;">
-                 <p><span><i class="material-icons">edit_note</i></span> Featured</p> 
+            <div class="card shadow" style="width: 14rem;">
+                <div class="card-header text-center" style=" font-family: 'Open Sans', sans-serif;background-color: #A6B1E1;">
+                 <p style="text-align: center;margin-bottom: 0%;"><span><i class="material-icons" style="vertical-align:middle;margin:0px 0px" >edit_note</i></span> Featured</p> 
                 </div>
-                <ul class="list-group list-group-flush">
+                <ul class="list-group list-group-flush" >
                   <li class="list-group-item text-center"  style=" font-family: 'Open Sans', sans-serif;">Get your posts featured and share your knowledge and Skills</li>
                 </ul>
             </div>
 
-            <div class="card shadow" style="width: 18rem;">
-                <div class="card-header text-center" style=" font-family: 'Open Sans', sans-serif;">
-                  <p> <span><i class="material-icons">style</i></span> Tags</p>
+            <div class="card shadow" style="width: 14rem;">
+                <div class="card-header text-center" style=" font-family: 'Open Sans', sans-serif;background-color: #DCD6F7;">
+                  <p style="text-align: center;margin-bottom: 0%;"> <span><i class="material-icons" style="vertical-align:middle;margin:0px 0px">style</i></span> Tags</p>
                 </div>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item text-center"  style=" font-family: 'Open Sans', sans-serif;">Follow tags to customise feed</li>
                 </ul>
             </div>
 
-            <div class="card shadow" style="width: 18rem;">
-                <div class="card-header text-center" style=" font-family: 'Open Sans', sans-serif;">
-                 <p><span><i class="material-icons">edit_note</i></span> Filter </p> 
+            <div class="card shadow" style="width: 14rem;">
+                <div class="card-header text-center" style=" font-family: 'Open Sans', sans-serif;background-color: #F4EEFF;">
+                 <p style="text-align: center;margin-bottom: 0%;"><span><i class="material-icons" style="vertical-align:middle;margin:0px 0px">edit_note</i></span> Filter </p> 
                 </div>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item text-center"  style=" font-family: 'Open Sans', sans-serif;">Filter and Personalise your posts</li>
                 </ul>
             </div>
- 
+
         </div>
     </div>
 </div>
-<%- include('../partials/pagination.ejs', {currentPage: currentPage, nextPage: nextPage, previousPage: previousPage, lastPage: lastPage, hasNextPage: hasNextPage, hasPreviousPage: hasPreviousPage}) %>
 </div>
-
-
 
 <%- include('../partials/footer'); %>
 </body>
