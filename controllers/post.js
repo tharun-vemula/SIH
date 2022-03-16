@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const Post = require('../models/post');
 const User = require('../models/user');
-const user = require('../models/user');
+
 
 
 exports.reviewCompose = (req, res) => {
