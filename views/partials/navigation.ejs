@@ -1,15 +1,15 @@
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<div style="width: 100%; background-color: #2a2a72">
+<div style="width: 100%;">
 
 
-<nav class="navbar navbar-expand-lg shadow bg-white p-1 "  >
+<nav class="navbar navbar-expand-lg shadow p-1 " style="background-color: #2a2a72 ;" >
     <div class="container-fluid ">
-      <a class="navbar-brand" style="padding-left: 10px;" href="/">
-        <img src="/images/logo.png" style="width: 45px; height: 30px;" alt=""> Raven</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <a class="navbar-brand" style="padding-left: 10px; cursor: context-menu ; color: white;"  >
+        <img src="/images/logo.png" style="width: 10%" alt=""> Raven</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="  color: white;">
+        <span class="navbar-toggler-icon"  ><img src="data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255)' stroke-width='4' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E">
+        </span>
       </button>
      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
     
@@ -22,21 +22,21 @@
         </li>
     </ul>
         
-        <ul class="navbar-nav ml-auto order-0 " style="margin-right: 5%;">
+        <ul class="navbar-nav ml-auto order-0 " style="margin-right: 5%; ">
           <% if(isAuthenticated) { %>
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/profile" style="color: black;"><%= user.name %> </a>
+                <a class="nav-link active" aria-current="page" href="/profile" style="color: white;"><%= user.name %> </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/logout" style="color: black;"> Log Out </a>
+              <a class="nav-link active" aria-current="page" href="/logout" style="color: white;"> Log Out </a>
             </li>
           <% } else { %>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/login" style="color: black;"> Login </a>
+              <a class="nav-link active" aria-current="page" href="/login" style="color: white"> Login </a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/signup"> Signup </a>
+              <a class="nav-link active" aria-current="page" href="/signup" style="color: white"> Signup </a>
             </li>
 
           <% } %>
