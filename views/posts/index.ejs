@@ -35,7 +35,7 @@
          
      }
      a:hover {
-         color:black;
+         color:#306fe2;
      }
      
      a:active{
@@ -62,10 +62,13 @@
     <div class="row">
         <!--left navigation-->
         <div class="col-lg-2 p-5">
-            <p class="text-start"> <a href="/home">Home</a> </p>
-            <p class="text-start"> <a href="/trending">Trending</a> </p>
-            <p class="text-center py-3" style="color: grey;"><a href="/users"> Users</a></p>
-            <p class="text-center py-1" style="color: grey;"><a href="/tags"> Tags</a></p>
+            <p class="text-start" style="text-align:center;margin-bottom: 0%;"><a href="/home"><i class="material-icons" style="vertical-align:middle;margin:0px 0px;">home</i>Home</a> </p>
+            <br>
+            <p class="text-start" style="text-align:center;margin-bottom: 0%;"> <a href="/trending"><i class="material-icons" style="vertical-align:middle;margin:0px 0px;">trending_up</i>Trending</a> </p>
+            <br>
+            <p class="text-start" style="text-align:center;margin-bottom: 0%;"><a href="/users"><i class="material-icons" style="vertical-align:middle;margin:0px 0px;">people</i> Users</a></p>
+            <br>
+            <p class="text-start" style="text-align:center;margin-bottom: 0%;"><a href="/tags"> <i class="material-icons" style="vertical-align:middle;margin:0px 0px;">style</i>Tags</a></p>
          </div>
          <!--left navigation ends-->
 
@@ -110,9 +113,9 @@
                 
             <div class="container-fluid" style=" width: 100%; padding: 0; margin: 0%;" id="box">
                 <div class="border container" style="width: 100%; " >
-                 <a href="/post/<%=post._id%>" id="two"><p class="text-start px-5 fs-5 py-2" ><%=post.title %></p></a>
-                 <p class="text-start px-5 fs-7" style="color: grey; display: inline-block ; float: left;">Find out more about NP and their solutions</p>
-                 <p class="text-end  fs-7" style="text-align: center;color:grey;"><span><i class="material-icons" style="vertical-align:middle;margin:0px 0px">account_circle</i></span> Tharun Vemula</p>
+                 <a href="/post/<%=post._id%>" id="two"><p class="text-start px-5 fs-5 py-2" ><i class="material-icons" style="vertical-align:middle;margin:0px 0px;">article</i><%=post.title %></p></a>
+                 <p class="text-start px-5 fs-7" style="color: grey; display: inline-block ; float: left;"><%=post.meta%></p>
+                 <p class="text-end  fs-7" style="text-align: center;color:grey;"><span><i class="material-icons" style="vertical-align:middle;margin:0px 0px">account_circle</i></span> <%=post.creator%></p>
                 </div>
              </div>
              <% } %>

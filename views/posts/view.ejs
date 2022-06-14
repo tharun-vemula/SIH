@@ -11,7 +11,8 @@
             <div class="header">
                 <p class="title fs-2 text-center"  id="Title" style="font-family: 'Roboto', sans-serif;"></p>
                 <br>
-                <p class="author text-start fs-4" id="author" style="font-family: 'Noto Sans', sans-serif;"><img src=".JPG" class="rounded float-start" alt="..."> </p>
+                <p class="author text-start fs-4" id="author" style="font-family: 'Noto Sans', sans-serif;"><img src=".JPG" class="rounded float-start" alt="..."> <span><i class="material-icons" style="vertical-align:middle;margin:0px 0px">account_circle</i></span> </p>
+                <p class="fs-7"> <i id="date"> </i></p>
                 <span id="date" class="fst-italic"></span>
                 <hr>
             </div>
@@ -45,6 +46,11 @@
       let authorPlace = document.getElementById('author');
       let author = `<%-post.creator%>`
       authorPlace.innerHTML = author;
+
+      let datePlace = document.getElementById('date');
+      let date = '<%- post.createdAt%>';
+      let newDate = new Date(date);
+      datePlace.textContent = newDate;
 
     </script> 
     
