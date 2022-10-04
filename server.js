@@ -8,7 +8,8 @@ const multer = require('multer');
 const flash = require('connect-flash');
 const {spawn} = require('child_process')
 
-const MONGO_URI = 'mongodb://tharun:F0zvliOynvWjbrKf@cluster0-shard-00-00.iy4kk.mongodb.net:27017,cluster0-shard-00-01.iy4kk.mongodb.net:27017,cluster0-shard-00-02.iy4kk.mongodb.net:27017/sample?ssl=true&replicaSet=atlas-k2o103-shard-0&authSource=admin&retryWrites=true&w=majority';
+const MONGO_URI = 'mongodb://tarun:ktg2bFu8b3RMsKSf@cluster0-shard-00-00.iy4kk.mongodb.net:27017,cluster0-shard-00-01.iy4kk.mongodb.net:27017,cluster0-shard-00-02.iy4kk.mongodb.net:27017/sample2?ssl=true&replicaSet=atlas-k2o103-shard-0&authSource=admin&retryWrites=true&w=majority';
+
 const PORT = process.env.PORT || 3000;
 
 const authRouter = require('./routes/auth');
